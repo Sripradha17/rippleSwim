@@ -30,44 +30,18 @@
   <section class="section section-light">
     <div class="container">
       <div class="section-shell pricing-intro" appReveal>
-        <div>
+        <div class="pricing-intro-heading">
           <p class="eyebrow">Simple options</p>
           <h2>Start small or build a steady swim routine.</h2>
         </div>
-        <div class="pricing-intro-copy">
-          <p>These packages are structured to make comparisons quick for parents deciding between a trial, a short pack, or a recurring commitment.</p>
-          <div class="pricing-points" aria-label="Pricing benefits">
-            <span class="pricing-point">Easy comparisons</span>
-            <span class="pricing-point">Recurring options</span>
-            <span class="pricing-point">Progress-focused plans</span>
-          </div>
-          <div class="pricing-guide">
-            <div class="pricing-guide-summary">
-              <p class="eyebrow">Suggested fit</p>
-              <h3>{{ selectedPlan().title }}</h3>
-              <p class="price price-inline">{{ selectedPlan().price }}</p>
-              <p>{{ selectedPlan().summary }}</p>
-              <div class="pricing-rhythm-card">
-                <div class="pricing-rhythm-head">
-                  <strong>{{ selectedPlan().rhythm }}</strong>
-                  <span>Commitment rhythm</span>
-                </div>
-                <div class="pricing-rhythm-track" aria-hidden="true">
-                  @for (step of commitmentSteps; track step) {
-                    <span [class.is-active]="step <= selectedPlan().momentum"></span>
-                  }
-                </div>
-                <p>{{ selectedPlan().idealFor }}</p>
-                <p class="pricing-rhythm-note">{{ selectedPlan().note }}</p>
-              </div>
+        <div class="pricing-intro-main">
+          <div class="pricing-intro-copy">
+            <p>These packages are structured to make comparisons quick for parents deciding between a trial, a short pack, or a recurring commitment.</p>
+            <div class="pricing-points" aria-label="Pricing benefits">
+              <span class="pricing-point">Easy comparisons</span>
+              <span class="pricing-point">Recurring options</span>
+              <span class="pricing-point">Progress-focused plans</span>
             </div>
-            <app-option-picker
-              ariaLabel="Pricing goals"
-              [options]="goalOptions()"
-              [selectedId]="selectedPlanId()"
-              [columns]="2"
-              (selected)="selectPlan($event)"
-            ></app-option-picker>
           </div>
           <app-media-frame
             class="pricing-hero-photo"
@@ -77,6 +51,39 @@
             [height]="800"
             [priority]="true"
           ></app-media-frame>
+        </div>
+        <div class="pricing-guide">
+          <div class="pricing-guide-summary">
+            <p class="eyebrow">Suggested fit</p>
+            <h3>{{ selectedPlan().title }}</h3>
+            <p class="price price-inline">{{ selectedPlan().price }}</p>
+            <p>{{ selectedPlan().summary }}</p>
+            <div class="pricing-rhythm-card">
+              <div class="pricing-rhythm-head">
+                <strong>{{ selectedPlan().rhythm }}</strong>
+                <span>Commitment rhythm</span>
+              </div>
+              <div class="pricing-rhythm-track" aria-hidden="true">
+                @for (step of commitmentSteps; track step) {
+                  <span [class.is-active]="step <= selectedPlan().momentum"></span>
+                }
+              </div>
+              <p>{{ selectedPlan().idealFor }}</p>
+              <p class="pricing-rhythm-note">{{ selectedPlan().note }}</p>
+            </div>
+          </div>
+          <div class="pricing-guide-picker">
+            <p class="eyebrow">Choose a focus</p>
+            <h3>Compare each plan by routine and momentum.</h3>
+            <p>Select an option to update the recommendation and see which plan best fits your swimmer's pace.</p>
+            <app-option-picker
+              ariaLabel="Pricing goals"
+              [options]="goalOptions()"
+              [selectedId]="selectedPlanId()"
+              [columns]="2"
+              (selected)="selectPlan($event)"
+            ></app-option-picker>
+          </div>
         </div>
       </div>
       <div class="section-heading" appReveal>

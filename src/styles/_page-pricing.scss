@@ -3,7 +3,7 @@
 .pricing-hero {
 	background:
 		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.96), rgba(tokens.$pool-mid, 0.8)),
-		url('/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
+		url('/images/kids-group-pool-smiling.jpg') center/cover no-repeat;
 	color: white;
 }
 
@@ -107,23 +107,45 @@
 
 .pricing-intro {
 	display: grid;
-	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-	gap: 1.5rem;
-	align-items: center;
+	grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.28fr);
+	gap: 1.6rem 2rem;
+	align-items: start;
 	margin-bottom: 1.75rem;
+}
+
+.pricing-intro-heading {
+	display: grid;
+	gap: 0.75rem;
+	max-width: 22rem;
+	padding-top: 0.35rem;
+}
+
+.pricing-intro-main {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.9fr);
+	gap: 1.4rem;
+	align-items: center;
 }
 
 .pricing-intro-copy {
 	display: grid;
-	gap: 1.2rem;
+	gap: 1rem;
 	color: tokens.$muted;
+}
+
+.pricing-intro-copy > p:first-child {
+	max-width: 34rem;
+	margin: 0;
+	font-size: 1.02rem;
+	line-height: 1.7;
+	color: rgba(tokens.$pool-deep, 0.8);
 }
 
 .pricing-points {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.75rem;
-	margin-top: 1.1rem;
+	margin-top: 0.25rem;
 }
 
 .pricing-point {
@@ -143,24 +165,62 @@
 	border-radius: 28px;
 	position: relative;
 	box-shadow: 0 26px 58px rgba(tokens.$pool-deep, 0.16);
-	min-height: 16rem;
+	max-width: none;
+	width: 100%;
+	aspect-ratio: 1200 / 800;
+	border-radius: 28px 28px 72px 28px;
 	animation: drift-card 12s ease-in-out infinite;
 }
 
 .pricing-guide {
 	display: grid;
-	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	grid-column: 1 / -1;
+	grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
 	gap: 1rem;
-	margin-top: 1.4rem;
+	margin-top: 0.15rem;
 	align-items: start;
+	padding: 1.2rem;
+	border-radius: 32px;
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(tokens.$surface-tint, 0.8)),
+		radial-gradient(circle at 100% 0, rgba(tokens.$pool-bright, 0.1), transparent 24%);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	box-shadow: 0 20px 44px rgba(tokens.$pool-deep, 0.08);
 }
 
 .pricing-guide-summary {
-	padding: 1.1rem 1.15rem;
+	display: grid;
+	gap: 0.55rem;
+	padding: 1.15rem 1.15rem 1rem;
 	border-radius: 24px;
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(tokens.$surface-tint, 0.86));
 	border: 1px solid rgba(tokens.$pool-bright, 0.14);
 	box-shadow: 0 16px 34px rgba(tokens.$pool-deep, 0.08);
+}
+
+.pricing-guide-picker {
+	display: grid;
+	gap: 0.75rem;
+	align-content: start;
+	padding: 0.3rem 0.2rem 0.2rem;
+}
+
+.pricing-guide-picker h3,
+.pricing-guide-picker p {
+	margin: 0;
+}
+
+.pricing-guide-picker > p:not(.eyebrow) {
+	max-width: 32rem;
+	color: rgba(tokens.$pool-deep, 0.74);
+}
+
+.pricing-guide-picker app-option-picker {
+	display: block;
+	margin-top: 0.15rem;
+	padding: 0.15rem;
+	border-radius: 24px;
+	background: rgba(255, 255, 255, 0.36);
 }
 
 .pricing-guide-summary .eyebrow,
@@ -169,12 +229,21 @@
 	margin-bottom: 0.55rem;
 }
 
+
+.pricing-guide-summary > p:not(.eyebrow):not(.price-inline) {
+	margin: 0;
+}
+
 .pricing-rhythm-card {
 	display: grid;
 	gap: 0.65rem;
 	margin-top: 1rem;
 	padding-top: 1rem;
 	border-top: 1px solid rgba(tokens.$pool-deep, 0.08);
+}
+
+.pricing-rhythm-card > p {
+	margin: 0;
 }
 
 .pricing-rhythm-head {
