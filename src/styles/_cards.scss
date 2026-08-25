@@ -127,7 +127,7 @@
 	padding: 3rem;
 	background:
 		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.9), rgba(tokens.$pool-mid, 0.74)),
-		url('/images/kids-group-pool-smiling.jpg') center/cover no-repeat;
+		url('../../public/images/kids-group-pool-smiling.jpg') center/cover no-repeat;
 	border-radius: tokens.$radius-lg;
 	color: white;
 	box-shadow: tokens.$shadow-strong;
@@ -183,7 +183,7 @@
 	padding: 2rem;
 	background:
 		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.95), rgba(tokens.$pool-mid, 0.78)),
-		url('/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
+		url('../../public/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
 	border-radius: tokens.$radius-lg;
 	color: white;
 	box-shadow: tokens.$shadow-strong;

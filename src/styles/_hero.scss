@@ -56,7 +56,7 @@
 	background:
 		linear-gradient(120deg, rgba(tokens.$pool-deep, 0.92) 4%, rgba(tokens.$pool-mid, 0.74) 48%, rgba(tokens.$pool-bright, 0.36) 100%),
 		linear-gradient(180deg, rgba(tokens.$pool-deep, 0.24), rgba(tokens.$pool-deep, 0.65)),
-		url('/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
+		url('../../public/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
 	transform: scale(1.04);
 }
 
