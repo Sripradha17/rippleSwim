@@ -1,0 +1,51 @@
+<header class="site-header">
+  <div class="header-tide" aria-hidden="true"></div>
+  <div class="header-bubbles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <button
+    class="header-backdrop"
+    type="button"
+    aria-label="Close navigation menu"
+    [class.is-open]="menuOpen()"
+    (click)="closeMenu()"
+  ></button>
+  <div class="container header-inner">
+    <a class="brand" routerLink="/" aria-label="Ripple Swim Co. home" (click)="closeMenu()">
+      <span class="brand-mark">R</span>
+      <span class="brand-copy">
+        <span class="brand-text">Ripple Swim Co.</span>
+        <span class="brand-subtitle">Confidence-first swim lessons</span>
+      </span>
+    </a>
+    <div class="nav-meta desktop-only" aria-label="Program highlights">
+      <span class="nav-chip">Warm-water lessons</span>
+      <span class="nav-chip">Small-group coaching</span>
+    </div>
+    <button
+      class="menu-toggle"
+      type="button"
+      [class.is-open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="site-nav"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation" [class.is-open]="menuOpen()">
+      <div class="mobile-nav-summary mobile-only" aria-hidden="true">
+        <strong>Choose your lane</strong>
+        <span>Browse classes, compare plans, then book the best fit.</span>
+      </div>
+      <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link" (click)="closeMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active-link" (click)="closeMenu()">About</a>
+      <a routerLink="/classes" routerLinkActive="active-link" (click)="closeMenu()">Classes</a>
+      <a routerLink="/pricing" routerLinkActive="active-link" (click)="closeMenu()">Pricing</a>
+      <a routerLink="/contact" routerLinkActive="active-link" (click)="closeMenu()">Contact</a>
+    </nav>
+    <a class="button button-primary nav-cta desktop-only" routerLink="/contact">Book a Lesson</a>
+  </div>
+</header>

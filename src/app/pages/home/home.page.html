@@ -1,0 +1,152 @@
+<div class="page-home">
+  <section class="hero hero-home">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-bubbles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="hero-kicker-list">
+          <span class="hero-kicker">Warm-water lessons</span>
+          <span class="hero-kicker">Small-group coaching</span>
+          <span class="hero-kicker">Serving local families</span>
+        </div>
+        <p class="eyebrow">Lessons for every age and comfort level</p>
+        <h1>Build calm, capable swimmers one ripple at a time.</h1>
+        <p class="hero-text">From first splashes to stroke refinement, Ripple Swim Co. helps local families learn with patience, safety, and real progress.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" routerLink="/classes">View Classes</a>
+          <a class="button button-secondary" routerLink="/contact">Book a Lesson</a>
+        </div>
+        <div class="hero-stats" aria-label="Ripple Swim Co. strengths">
+          <div class="hero-stat">
+            <app-stat-counter value="5" label="lane-based class paths"></app-stat-counter>
+          </div>
+          <div class="hero-stat">
+            <app-stat-counter value="All" label="ages and confidence levels"></app-stat-counter>
+          </div>
+          <div class="hero-stat">
+            <app-stat-counter value="Small" label="class sizes for more coaching"></app-stat-counter>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-feature-card hero-story-card">
+          <p class="eyebrow">Safe starts</p>
+          <h2>Small groups. Clear coaching. Stronger water confidence.</h2>
+          <p>From parent-and-child lessons to adult refreshers, each lane is paced to feel calm, personal, and genuinely useful.</p>
+        </div>
+        <div class="hero-feature-card hero-photo-card">
+          <app-media-frame
+            src="/images/swimmer-goggles-hero.jpg"
+            alt="Young swimmer wearing goggles in a pool lesson"
+            [width]="900"
+            [height]="980"
+            [priority]="true"
+          ></app-media-frame>
+        </div>
+        <div class="hero-feature-card hero-secondary-card">
+          <app-media-frame
+            src="/images/poolside-lesson.jpg"
+            alt="Swimming lesson moment in a pool"
+            [width]="700"
+            [height]="520"
+          ></app-media-frame>
+        </div>
+      </div>
+    </div>
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+        <path d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,140L1380,140C1320,140,1200,140,1080,140C960,140,840,140,720,140C600,140,480,140,360,140C240,140,120,140,60,140L0,140Z" fill="#fffaf2"></path>
+      </svg>
+    </div>
+  </section>
+
+  <section class="section section-light home-reasons">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Why families choose Ripple</p>
+        <h2>Thoughtful instruction from the very first lesson.</h2>
+      </div>
+      <div class="card-grid card-grid-3" appReveal>
+        <article class="info-card">
+          <h3>Certified instructors</h3>
+          <p>Every lesson is led by trained, safety-minded teachers who know how to make the water feel welcoming.</p>
+        </article>
+        <article class="info-card">
+          <h3>Small class sizes</h3>
+          <p>We keep each group intentionally small so swimmers receive close coaching, steady encouragement, and space to grow.</p>
+        </article>
+        <article class="info-card">
+          <h3>All ages and levels</h3>
+          <p>Whether it is a first kick or a stroke tune-up, we meet swimmers where they are and move at the right pace.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint home-spotlight" (mouseenter)="pauseLaneRotation()" (mouseleave)="resumeLaneRotation()">
+    <div class="container home-spotlight-grid" appReveal>
+      <div>
+        <div class="section-heading">
+          <p class="eyebrow">Explore the lanes</p>
+          <h2>Tap through the swim paths to find the best fit.</h2>
+        </div>
+        <p class="spotlight-note">The spotlight rotates automatically so families can preview each starting point before opening the full classes page.</p>
+        <app-option-picker
+          ariaLabel="Lane spotlight selector"
+          [options]="lanePickerOptions()"
+          [selectedId]="selectedLaneId()"
+          (selected)="selectLane($event)"
+        ></app-option-picker>
+        <div class="lane-selector-status" aria-live="polite">
+          <span class="lane-selector-dot"></span>
+          Auto-preview active for Lane {{ selectedLane().id }}
+        </div>
+      </div>
+
+      <article class="lane-spotlight">
+        <div class="lane-spotlight-copy">
+          <p class="eyebrow">Lane {{ selectedLane().id }} spotlight</p>
+          <h3>{{ selectedLane().title }}</h3>
+          <p class="lane-meta">{{ selectedLane().meta }}</p>
+          <p>{{ selectedLane().description }}</p>
+          <div class="lane-spotlight-actions">
+            <a class="button button-primary" routerLink="/classes">See Full Class Details</a>
+            <a class="button button-secondary" routerLink="/contact">Ask About Placement</a>
+          </div>
+        </div>
+        <div class="lane-spotlight-visual">
+          <span class="lane-spotlight-badge">Lane {{ selectedLane().id }}</span>
+          <app-media-frame
+            [src]="selectedLane().image"
+            [alt]="selectedLane().imageAlt"
+            [width]="900"
+            [height]="820"
+          ></app-media-frame>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-light home-testimonial-wrap">
+    <div class="container home-testimonial-grid" appReveal>
+      <blockquote class="testimonial testimonial-stage">
+        <p>"{{ selectedTestimonial().quote }}"</p>
+        <footer>
+          <strong>{{ selectedTestimonial().name }}</strong>
+          <span>{{ selectedTestimonial().detail }}</span>
+        </footer>
+      </blockquote>
+      <div class="testimonial-selector">
+        <p class="eyebrow">Parent stories</p>
+        <app-option-picker
+          ariaLabel="Parent stories selector"
+          [options]="testimonialPickerOptions()"
+          [selectedId]="selectedTestimonialId()"
+          (selected)="selectTestimonial($event)"
+        ></app-option-picker>
+      </div>
+    </div>
+  </section>
+</div>

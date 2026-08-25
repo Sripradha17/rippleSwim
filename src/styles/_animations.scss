@@ -1,0 +1,115 @@
+@use 'tokens';
+
+[appReveal] {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity 600ms ease, transform 600ms ease;
+}
+
+[appReveal].is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@keyframes bubble-rise {
+	0% {
+		transform: translate3d(0, 0, 0) scale(0.8);
+		opacity: 0;
+	}
+
+	10% {
+		opacity: 0.7;
+	}
+
+	100% {
+		transform: translate3d(2rem, -110vh, 0) scale(1.35);
+		opacity: 0;
+	}
+}
+
+@keyframes float-card {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-6px);
+	}
+}
+
+@keyframes drift-card {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+
+	50% {
+		transform: translate3d(0.25rem, -0.5rem, 0);
+	}
+}
+
+@keyframes page-rise {
+	0% {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes pulse-dot {
+	0% {
+		box-shadow: 0 0 0 0 rgba(tokens.$coral-pop, 0.4);
+	}
+
+	70% {
+		box-shadow: 0 0 0 12px rgba(tokens.$coral-pop, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(tokens.$coral-pop, 0);
+	}
+}
+
+@keyframes swimline-glide {
+	0% {
+		left: 0;
+	}
+
+	50% {
+		left: 50%;
+	}
+
+	100% {
+		left: 100%;
+	}
+}
+
+@keyframes ripple-ring {
+	0% {
+		transform: scale(0.4);
+		opacity: 0;
+	}
+
+	25% {
+		opacity: 0.42;
+	}
+
+	100% {
+		transform: scale(1.8);
+		opacity: 0;
+	}
+}
+
+@keyframes wave-sway {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-12%);
+	}
+}

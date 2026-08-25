@@ -1,0 +1,42 @@
+@use 'tokens';
+
+.text-link {
+	font-weight: 700;
+	color: tokens.$pool-mid;
+	transition: color 180ms ease;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+	color: tokens.$pool-deep;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3rem;
+	padding: 0.8rem 1.35rem;
+	border: 0;
+	border-radius: tokens.$radius-pill;
+	font-weight: 700;
+	transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+	box-shadow: 0 12px 22px rgba(tokens.$pool-deep, 0.12), inset 0 -2px 0 rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+}
+
+.button:hover,
+.button:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: tokens.$shadow-lift;
+}
+
+.button-primary {
+	background: linear-gradient(135deg, tokens.$sun-pop, #ffbf1c);
+	color: tokens.$pool-deep;
+}
+
+.button-secondary {
+	background: linear-gradient(135deg, tokens.$pool-deep, tokens.$pool-mid);
+	color: white;
+}

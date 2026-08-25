@@ -1,0 +1,148 @@
+@use 'tokens';
+
+.page-home .section-light {
+	background: transparent;
+}
+
+.home-testimonial-wrap {
+	background:
+		radial-gradient(circle at 15% 15%, rgba(tokens.$sun-pop, 0.12), transparent 20%),
+		linear-gradient(180deg, rgba(tokens.$bg, 0), rgba(tokens.$surface-tint, 0.7));
+}
+
+.home-spotlight {
+	background:
+		linear-gradient(180deg, rgba(tokens.$surface-tint, 0.9), rgba(255, 255, 255, 0.35)),
+		radial-gradient(circle at 90% 10%, rgba(tokens.$pool-electric, 0.16), transparent 16%);
+}
+
+.spotlight-note {
+	max-width: 34rem;
+	margin: -0.3rem 0 1.4rem;
+	color: tokens.$muted;
+}
+
+.home-spotlight-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+	gap: clamp(1.5rem, 4vw, 3rem);
+	align-items: start;
+}
+
+.lane-selector-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin-top: 1rem;
+	color: tokens.$pool-deep;
+	font-size: 0.92rem;
+	font-weight: 600;
+}
+
+.lane-selector-dot {
+	width: 0.7rem;
+	height: 0.7rem;
+	border-radius: 50%;
+	background: tokens.$coral-pop;
+	box-shadow: 0 0 0 0 rgba(tokens.$coral-pop, 0.4);
+	animation: pulse-dot 1.8s ease infinite;
+}
+
+.home-testimonial-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+	gap: 1.5rem;
+	align-items: stretch;
+}
+
+.testimonial-stage {
+	height: 100%;
+}
+
+.testimonial-selector {
+	display: grid;
+	align-content: start;
+	gap: 0.9rem;
+	padding: 1.5rem;
+	border-radius: 32px;
+	background: rgba(255, 255, 255, 0.84);
+	border: 1px solid rgba(tokens.$pool-bright, 0.16);
+	box-shadow: 0 22px 52px rgba(tokens.$pool-deep, 0.1);
+}
+
+.testimonial-selector .eyebrow {
+	margin-bottom: 0.25rem;
+}
+
+.lane-spotlight {
+	display: grid;
+	grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+	gap: 1.5rem;
+	padding: 1.5rem;
+	border-radius: 34px;
+	background: linear-gradient(135deg, rgba(tokens.$pool-deep, 0.98), rgba(tokens.$pool-mid, 0.88));
+	color: white;
+	box-shadow: 0 32px 80px rgba(tokens.$pool-deep, 0.24);
+	overflow: hidden;
+	position: relative;
+}
+
+.lane-spotlight::before {
+	content: '';
+	position: absolute;
+	inset: auto -6% -10% auto;
+	width: 16rem;
+	height: 16rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(tokens.$sun-pop, 0.28), transparent 70%);
+}
+
+.lane-spotlight-copy {
+	position: relative;
+	z-index: 1;
+	padding: 0.4rem;
+}
+
+.lane-spotlight-copy h3 {
+	font-size: clamp(2rem, 3vw, 3rem);
+	margin-bottom: 0.75rem;
+}
+
+.lane-spotlight-copy .lane-meta {
+	margin-bottom: 1rem;
+	color: rgba(255, 255, 255, 0.76);
+}
+
+.lane-spotlight-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.9rem;
+	margin-top: 1.5rem;
+}
+
+.lane-spotlight-visual {
+	position: relative;
+	min-height: 25rem;
+	border-radius: 28px;
+	overflow: hidden;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.lane-spotlight-visual img {
+	filter: saturate(1.03) contrast(1.02);
+}
+
+.lane-spotlight-badge {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	z-index: 1;
+	display: inline-flex;
+	padding: 0.5rem 0.8rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(10px);
+	color: white;
+	font-weight: 700;
+}

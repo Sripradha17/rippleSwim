@@ -1,0 +1,219 @@
+@use 'tokens';
+
+.contact-hero {
+	background:
+		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.84), rgba(tokens.$pool-bright, 0.5)),
+		url('/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
+	color: white;
+}
+
+.contact-hero p:last-child,
+.contact-hero .eyebrow {
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.page-contact .section-light {
+	background:
+		linear-gradient(180deg, rgba(tokens.$surface-tint, 0.6), rgba(tokens.$bg, 0.15)),
+		radial-gradient(circle at 88% 20%, rgba(tokens.$coral-pop, 0.08), transparent 16%);
+}
+
+.page-contact .contact-layout {
+	gap: 1.75rem;
+}
+
+.contact-layout {
+	align-items: stretch;
+}
+
+.contact-intro {
+	grid-column: 1 / -1;
+	display: grid;
+	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+	gap: 1.5rem;
+	align-items: start;
+}
+
+.contact-preset-panel {
+	margin-top: 1.4rem;
+	display: grid;
+	gap: 1rem;
+}
+
+.contact-preset-copy h3 {
+	margin-bottom: 0;
+}
+
+.contact-summary {
+	grid-column: 1 / -1;
+	display: grid;
+	gap: 0.8rem;
+}
+
+.contact-summary-photo {
+	margin: 0;
+	border-radius: 28px;
+	position: relative;
+	box-shadow: 0 26px 58px rgba(tokens.$pool-deep, 0.16);
+	min-height: 15rem;
+}
+
+.contact-summary h3 {
+	margin-bottom: 0;
+}
+
+.contact-summary-tip {
+	display: grid;
+	gap: 0.35rem;
+	padding: 1rem 1.1rem;
+	border-radius: 22px;
+	background: rgba(tokens.$pool-deep, 0.05);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+}
+
+.contact-summary-tip strong {
+	color: tokens.$pool-deep;
+}
+
+.contact-readiness {
+	display: grid;
+	gap: 0.75rem;
+	padding: 1rem 1.1rem;
+	border-radius: 22px;
+	background: rgba(255, 255, 255, 0.84);
+	border: 1px solid rgba(tokens.$pool-bright, 0.14);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.contact-readiness-head {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.75rem;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+
+.contact-readiness-head strong {
+	color: tokens.$pool-deep;
+}
+
+.contact-readiness-head span {
+	font-size: 0.9rem;
+	color: tokens.$muted;
+}
+
+.contact-readiness-track {
+	height: 0.7rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(tokens.$pool-deep, 0.08);
+	overflow: hidden;
+}
+
+.contact-readiness-track span {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: linear-gradient(90deg, tokens.$sun-pop, tokens.$coral-pop, tokens.$pool-electric);
+	transition: width 220ms ease;
+}
+
+.contact-readiness-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+}
+
+.contact-readiness-list span {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.45rem 0.7rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(tokens.$pool-deep, 0.06);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	font-size: 0.88rem;
+	font-weight: 700;
+	color: tokens.$muted;
+	transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.contact-readiness-list span.is-complete {
+	background: rgba(tokens.$seafoam, 0.56);
+	border-color: rgba(tokens.$pool-bright, 0.28);
+	color: tokens.$pool-deep;
+}
+
+.contact-step-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.contact-step {
+	display: grid;
+	gap: 0.45rem;
+	padding: 1rem;
+	border-radius: 22px;
+	background: rgba(tokens.$pool-deep, 0.04);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	color: tokens.$muted;
+}
+
+.contact-step strong {
+	color: tokens.$pool-deep;
+}
+
+.contact-chip-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 1.1rem;
+}
+
+.contact-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.55rem 0.85rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(tokens.$pool-deep, 0.08);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: tokens.$pool-deep;
+}
+
+.contact-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.contact-list li {
+	margin-bottom: 0.85rem;
+}
+
+.contact-panel {
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(tokens.$surface-tint, 0.92)),
+		linear-gradient(135deg, rgba(tokens.$coral-pop, 0.04), rgba(tokens.$pool-bright, 0.08));
+	border: 1px solid rgba(tokens.$pool-bright, 0.14);
+	box-shadow: tokens.$shadow-soft;
+	position: relative;
+	overflow: hidden;
+}
+
+.contact-panel::after {
+	content: '';
+	position: absolute;
+	inset: auto -10% -18% auto;
+	width: 16rem;
+	height: 16rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(tokens.$pool-electric, 0.14), transparent 70%);
+}
+
+.contact-note {
+	margin-top: 1.5rem;
+	margin-bottom: 0;
+	color: tokens.$muted;
+	font-weight: 500;
+}

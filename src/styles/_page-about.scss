@@ -1,0 +1,189 @@
+@use 'tokens';
+
+.about-hero {
+	background:
+		linear-gradient(120deg, rgba(tokens.$bg, 0.85), rgba(tokens.$surface-tint, 0.92)),
+		radial-gradient(circle at top left, rgba(tokens.$coral-pop, 0.11), transparent 20%);
+}
+
+.about-story-section {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(tokens.$bg, 0));
+}
+
+.founder-section {
+	background: linear-gradient(180deg, rgba(tokens.$surface-tint, 0.7), rgba(tokens.$bg, 0.2));
+}
+
+.about-story-shell {
+	align-items: center;
+}
+
+.page-about .about-story-section {
+	gap: 1.75rem;
+}
+
+.story-copy {
+	color: tokens.$muted;
+}
+
+.story-visual-stack {
+	display: grid;
+	gap: 1.2rem;
+}
+
+.story-highlights {
+	display: grid;
+	gap: 0.9rem;
+	margin-top: 1.5rem;
+}
+
+.story-highlight {
+	display: grid;
+	gap: 0.25rem;
+	padding: 1rem 1.1rem;
+	border-radius: 22px;
+	background: rgba(tokens.$pool-deep, 0.05);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+}
+
+.story-highlight strong {
+	color: tokens.$pool-deep;
+}
+
+.story-highlight span {
+	color: tokens.$muted;
+	font-size: 0.95rem;
+}
+
+.story-hero-photo {
+	margin: 0;
+	border-radius: 28px;
+	position: relative;
+	box-shadow: 0 26px 58px rgba(tokens.$pool-deep, 0.16);
+	min-height: 18rem;
+}
+
+.story-copy-card {
+	padding: 1.2rem 1.3rem;
+	border-radius: 24px;
+	background: rgba(255, 255, 255, 0.82);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	box-shadow: 0 18px 38px rgba(tokens.$pool-deep, 0.08);
+}
+
+.story-focus-panel {
+	display: grid;
+	gap: 0.85rem;
+	padding: 1.2rem 1.25rem;
+	border-radius: 24px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(tokens.$surface-tint, 0.88));
+	border: 1px solid rgba(tokens.$pool-bright, 0.16);
+	box-shadow: 0 18px 40px rgba(tokens.$pool-deep, 0.08);
+}
+
+.story-focus-header .eyebrow,
+.story-focus-header h3 {
+	margin-bottom: 0.4rem;
+}
+
+.story-focus-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+}
+
+.story-focus-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.6rem 0.95rem;
+	border-radius: tokens.$radius-pill;
+	border: 1px solid rgba(tokens.$pool-deep, 0.1);
+	background: rgba(255, 255, 255, 0.8);
+	color: tokens.$pool-deep;
+	font-weight: 700;
+	cursor: pointer;
+	transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.story-focus-button:hover,
+.story-focus-button:focus-visible,
+.story-focus-button.is-active {
+	transform: translateY(-2px);
+	border-color: rgba(tokens.$pool-bright, 0.34);
+	background: linear-gradient(135deg, rgba(tokens.$seafoam, 0.74), rgba(255, 255, 255, 0.92));
+	box-shadow: 0 14px 28px rgba(tokens.$pool-deep, 0.1);
+}
+
+.story-focus-card {
+	display: grid;
+	gap: 0.45rem;
+	padding: 1rem 1.05rem;
+	border-radius: 20px;
+	background: rgba(tokens.$pool-deep, 0.05);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	color: tokens.$muted;
+}
+
+.story-focus-card span {
+	font-weight: 700;
+	color: tokens.$pool-mid;
+}
+
+.about-photo-strip {
+	margin-top: 2.5rem;
+	display: grid;
+	grid-template-columns: 0.95fr 0.75fr 1.3fr;
+	gap: 1rem;
+	align-items: stretch;
+}
+
+.about-photo {
+	margin: 0;
+	min-height: 18rem;
+	border-radius: 28px;
+	box-shadow: tokens.$shadow-soft;
+	transform: translateY(0);
+	transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.about-photo:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 28px 60px rgba(tokens.$pool-deep, 0.16);
+}
+
+.founder-portrait {
+	display: flex;
+	justify-content: center;
+}
+
+.founder-photo {
+	background: #dffaff;
+}
+
+.founder-pill-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem;
+	margin-bottom: 1rem;
+}
+
+.founder-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5rem 0.85rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(tokens.$pool-deep, 0.08);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: tokens.$pool-deep;
+}
+
+.portrait-ring {
+	width: min(100%, 320px);
+	aspect-ratio: 1;
+	border-radius: 38% 62% 58% 42% / 46% 44% 56% 54%;
+	border: 10px solid rgba(255, 255, 255, 0.55);
+	box-shadow: 0 22px 60px rgba(tokens.$pool-deep, 0.18);
+}

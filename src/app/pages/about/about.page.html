@@ -1,0 +1,141 @@
+<div class="page-about">
+  <section class="inner-hero about-hero">
+    <div class="container narrow">
+      <p class="eyebrow">About Ripple Swim Co.</p>
+      <h1>Swimming lessons shaped by patience, trust, and real skill-building.</h1>
+      <p>We teach in a way that feels calm for families and clear for swimmers, with safety and steady confidence at the center of every lane.</p>
+    </div>
+  </section>
+
+  <section class="section section-light about-story-section">
+    <div class="container section-shell split-layout about-story-shell" appReveal>
+      <div>
+        <p class="eyebrow">Our story</p>
+        <h2>Built for families who want progress without pressure.</h2>
+        <div class="story-highlights" aria-label="Program highlights">
+          <div class="story-highlight">
+            <strong>Calm starts</strong>
+            <span>Gentle onboarding for nervous swimmers and new families.</span>
+          </div>
+          <div class="story-highlight">
+            <strong>Small groups</strong>
+            <span>More instructor attention and better pacing in every lane.</span>
+          </div>
+          <div class="story-highlight">
+            <strong>Skill progression</strong>
+            <span>Clear steps that make improvement visible week to week.</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-copy story-visual-stack">
+        <app-media-frame
+          class="story-hero-photo"
+          src="/images/instructor-supporting-swimmer.jpg"
+          alt="Instructor supporting a swimmer during a pool lesson"
+          [width]="1200"
+          [height]="900"
+        ></app-media-frame>
+        <div class="story-copy-card">
+          <p>Ripple Swim Co. began with a simple belief: strong swimmers are built through consistency, encouragement, and a teaching style that makes the water feel approachable. The program is designed to help local families feel supported from the first lesson through each new milestone.</p>
+          <p>Every lane is built around calm instruction, visible progress, and the kind of experience parents remember long after the lesson ends.</p>
+        </div>
+        <div class="story-focus-panel">
+          <div class="story-focus-header">
+            <p class="eyebrow">Pick the first-lesson vibe</p>
+            <h3>{{ selectedStoryFocus().title }}</h3>
+          </div>
+          <div class="story-focus-buttons" role="tablist" aria-label="About page lesson focus">
+            @for (focus of storyFocuses; track focus.id) {
+              <button
+                type="button"
+                class="story-focus-button"
+                [class.is-active]="selectedStoryFocusId() === focus.id"
+                [attr.aria-selected]="selectedStoryFocusId() === focus.id"
+                (click)="selectStoryFocus(focus.id)"
+              >
+                {{ focus.title }}
+              </button>
+            }
+          </div>
+          <div class="story-focus-card">
+            <p>{{ selectedStoryFocus().description }}</p>
+            <span>{{ selectedStoryFocus().cue }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container about-photo-strip" aria-label="Ripple Swim Co. swim school photo gallery" appReveal>
+      <app-media-frame
+        class="about-photo tall"
+        src="/images/swimmer-goggles-hero.jpg"
+        alt="Child practicing swimming with an instructor nearby"
+        [width]="900"
+        [height]="900"
+      ></app-media-frame>
+      <app-media-frame
+        class="about-photo"
+        src="/images/poolside-lesson.jpg"
+        alt="Poolside moment during a swim lesson"
+        [width]="900"
+        [height]="900"
+      ></app-media-frame>
+      <app-media-frame
+        class="about-photo wide"
+        src="/images/underwater-young-swimmer.jpg"
+        alt="Young swimmer gliding underwater during practice"
+        [width]="1200"
+        [height]="900"
+      ></app-media-frame>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">How we teach</p>
+        <h2>Three principles behind every lesson plan.</h2>
+      </div>
+      <div class="card-grid card-grid-3" appReveal>
+        <article class="info-card">
+          <h3>Safety first</h3>
+          <p>We reinforce safe habits in every class so swimmers build confidence alongside awareness and control.</p>
+        </article>
+        <article class="info-card">
+          <h3>Small steps, real progress</h3>
+          <p>Each lane breaks skills into manageable wins, which helps swimmers stay motivated and parents see momentum.</p>
+        </article>
+        <article class="info-card">
+          <h3>Certified and caring</h3>
+          <p>Our instructors balance professional training with warmth, so swimmers feel supported while they are challenged.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light founder-section">
+    <div class="container founder-card" appReveal>
+      <div class="founder-portrait">
+        <app-media-frame
+          class="portrait-ring founder-photo"
+          src="/images/smiling-swim-instructor.jpg"
+          alt="Swim instructor smiling beside a pool"
+          [width]="900"
+          [height]="900"
+        ></app-media-frame>
+      </div>
+      <div class="founder-copy">
+        <p class="eyebrow">Meet the founder</p>
+        <h2>A coaching style built on trust and clarity</h2>
+        <div class="founder-pill-row">
+          <span class="founder-pill">Safety-minded coaching</span>
+          <span class="founder-pill">Encouraging instruction</span>
+          <span class="founder-pill">Family-first experience</span>
+        </div>
+        <p>Ripple Swim Co. is shaped by hands-on instruction, safety-minded teaching, and a belief that swimmers improve faster when they feel calm, seen, and supported.</p>
+        <p>This section can still be personalized later with the founder's full story, certifications, and local background, but it now reads cleanly for launch in the meantime.</p>
+        <a class="button button-primary" routerLink="/classes">View Classes</a>
+      </div>
+    </div>
+  </section>
+</div>

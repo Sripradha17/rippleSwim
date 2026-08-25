@@ -39,8 +39,6 @@ npm run build
 
 The production build uses bundle budgets to guard against regressions and prerenders the marketing routes for fast delivery and SEO.
 
-The current production budget warns at `350 kB` for the initial bundle and fails at `500 kB`. That keeps the warning meaningful for this SSR marketing app without flagging the current baseline on every successful build.
-
 ## Environments
 
 Environment placeholders live in:

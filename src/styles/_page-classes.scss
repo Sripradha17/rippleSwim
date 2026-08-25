@@ -1,0 +1,233 @@
+@use 'tokens';
+
+.classes-hero {
+	background:
+		linear-gradient(120deg, rgba(tokens.$surface-tint, 0.96), rgba(tokens.$bg, 0.78)),
+		radial-gradient(circle at 80% 20%, rgba(tokens.$pool-electric, 0.14), transparent 22%);
+}
+
+.page-classes .section-light {
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(tokens.$surface-tint, 0.42));
+}
+
+.page-classes .lane-stack {
+	gap: 1.75rem;
+}
+
+.lane-stack {
+	display: grid;
+	gap: 1.25rem;
+}
+
+.class-overview {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: 1.5rem;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.class-overview-copy {
+	display: grid;
+	gap: 1.2rem;
+	color: tokens.$muted;
+}
+
+.class-pill-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 1.1rem;
+}
+
+.class-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.55rem 0.85rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(tokens.$pool-deep, 0.08);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: tokens.$pool-deep;
+}
+
+.class-guide {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: 1rem;
+	margin-top: 1.4rem;
+	align-items: start;
+}
+
+.class-hero-photo {
+	margin: 0;
+	border-radius: 28px;
+	position: relative;
+	box-shadow: 0 26px 58px rgba(tokens.$pool-deep, 0.16);
+	min-height: 18rem;
+	animation: drift-card 11s ease-in-out infinite;
+}
+
+.class-summary {
+	padding: 1.1rem 1.15rem;
+	border-radius: 24px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(tokens.$surface-tint, 0.86));
+	border: 1px solid rgba(tokens.$pool-bright, 0.14);
+	box-shadow: 0 16px 34px rgba(tokens.$pool-deep, 0.08);
+}
+
+.class-summary .eyebrow {
+	margin-bottom: 0.55rem;
+}
+
+.class-summary h3 {
+	margin-bottom: 0.55rem;
+}
+
+.class-pace-panel {
+	display: grid;
+	gap: 0.65rem;
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(tokens.$pool-deep, 0.08);
+}
+
+.class-pace-head {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.class-pace-head strong {
+	color: tokens.$pool-deep;
+}
+
+.class-pace-head span {
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: tokens.$pool-mid;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+}
+
+.class-pace-track {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0.55rem;
+}
+
+.class-pace-track span {
+	height: 0.7rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(tokens.$pool-deep, 0.09);
+	transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.class-pace-track span.is-active {
+	background: linear-gradient(90deg, tokens.$pool-bright, tokens.$seafoam);
+	transform: scaleY(1.06);
+	box-shadow: 0 8px 18px rgba(tokens.$pool-bright, 0.24);
+}
+
+.class-coach-note {
+	margin-bottom: 0;
+	font-size: 0.95rem;
+}
+
+.class-coach-note strong {
+	color: tokens.$pool-deep;
+}
+
+.lane-card {
+	position: relative;
+	overflow: hidden;
+	background:
+		linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(tokens.$surface-tint, 0.92)),
+		repeating-linear-gradient(135deg, rgba(tokens.$pool-bright, 0.05) 0 10px, rgba(255, 255, 255, 0) 10px 18px);
+	border: 1px solid rgba(tokens.$pool-mid, 0.18);
+	box-shadow: 0 22px 46px rgba(tokens.$pool-deep, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.lane-card::before {
+	content: '';
+	position: absolute;
+	inset: auto -8% -14% auto;
+	width: 46%;
+	height: 68%;
+	background:
+		radial-gradient(circle at center, rgba(tokens.$pool-bright, 0.12), transparent 60%),
+		repeating-radial-gradient(circle at center, rgba(tokens.$pool-mid, 0.18) 0 2px, rgba(tokens.$pool-mid, 0) 2px 11px);
+	opacity: 0.7;
+}
+
+.lane-card.detailed {
+	padding: 2rem;
+	border-radius: 28px 44px 28px 44px;
+}
+
+.lane-card.is-featured-lane {
+	border-color: rgba(tokens.$pool-bright, 0.5);
+	box-shadow: 0 30px 68px rgba(tokens.$pool-deep, 0.18);
+	transform: translateY(-3px);
+}
+
+.lane-card.compact {
+	min-height: 15rem;
+}
+
+.lane-number {
+	margin-bottom: 0.65rem;
+	font-size: 0.82rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: tokens.$pool-mid;
+}
+
+.lane-ghost-number {
+	position: absolute;
+	top: 0.65rem;
+	right: 1rem;
+	font-family: tokens.$font-display;
+	font-size: clamp(4rem, 8vw, 6.5rem);
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.18);
+	pointer-events: none;
+}
+
+.lane-outcomes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem;
+	margin-top: 1.25rem;
+}
+
+.lane-outcome {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.45rem 0.8rem;
+	border-radius: tokens.$radius-pill;
+	background: rgba(tokens.$pool-deep, 0.08);
+	border: 1px solid rgba(tokens.$pool-deep, 0.08);
+	font-size: 0.88rem;
+	font-weight: 600;
+	color: tokens.$pool-deep;
+}
+
+.accent-card {
+	background: linear-gradient(180deg, rgba(tokens.$sun-pop, 0.26), rgba(255, 255, 255, 0.96));
+}
+
+.lane-heading-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 1rem;
+}
+
+.lane-heading-row .lane-number {
+	margin: 0;
+}

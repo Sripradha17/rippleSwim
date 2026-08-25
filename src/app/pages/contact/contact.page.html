@@ -1,0 +1,141 @@
+<div class="page-contact">
+  <section class="inner-hero contact-hero">
+    <div class="container narrow">
+      <p class="eyebrow">Contact and booking</p>
+      <h1>Tell us about your swimmer and we will point you to the right lane.</h1>
+      <p>Use the form below to draft an email from your device and share the details that will help us guide you quickly.</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container contact-layout">
+      <div class="contact-intro section-shell" appReveal>
+        <div>
+          <p class="eyebrow">How booking works</p>
+          <h2>Share a few details and we can suggest the right next step.</h2>
+        </div>
+        <div>
+          <div class="contact-step-grid" aria-label="Booking steps">
+            <div class="contact-step">
+              <strong>1. Tell us about your swimmer</strong>
+              <span>Age, comfort level, past lessons, and any timing needs.</span>
+            </div>
+            <div class="contact-step">
+              <strong>2. We suggest a lane</strong>
+              <span>Based on confidence, goals, and where progress will feel smoothest.</span>
+            </div>
+            <div class="contact-step">
+              <strong>3. Confirm availability</strong>
+              <span>Then finalize your first lesson or package with the owner.</span>
+            </div>
+          </div>
+          <div class="contact-preset-panel">
+            <div class="contact-preset-copy">
+              <p class="eyebrow">Quick start</p>
+              <h3>Choose the closest fit and we will tailor the reply.</h3>
+            </div>
+            <app-option-picker
+              ariaLabel="Inquiry presets"
+              [options]="inquiryPresets"
+              [selectedId]="selectedPresetId()"
+              [columns]="2"
+              (selected)="selectPreset($event)"
+            ></app-option-picker>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-summary section-shell" appReveal>
+        <p class="eyebrow">Current inquiry focus</p>
+        <h3>{{ selectedPreset().label }}</h3>
+        <p class="lane-meta">{{ selectedPreset().lane }}</p>
+        <p>{{ selectedPreset().detail }}</p>
+        <div class="contact-summary-tip">
+          <strong>Helpful details to include:</strong>
+          <span>{{ selectedPreset().prompt }}</span>
+        </div>
+        <div class="contact-readiness">
+          <div class="contact-readiness-head">
+            <strong>{{ completionCount() }}/4 details ready</strong>
+            <span>{{ completionCount() === 4 ? 'Ready to draft your inquiry' : 'A few more details helps us reply faster' }}</span>
+          </div>
+          <div class="contact-readiness-track" aria-hidden="true">
+            <span [style.width.%]="completionPercent()"></span>
+          </div>
+          <div class="contact-readiness-list" aria-label="Inquiry completion status">
+            <span [class.is-complete]="fieldComplete('name')">Name</span>
+            <span [class.is-complete]="fieldComplete('email')">Email</span>
+            <span [class.is-complete]="fieldComplete('lane')">Lane</span>
+            <span [class.is-complete]="fieldComplete('message')">Message</span>
+          </div>
+        </div>
+        <app-media-frame
+          class="contact-summary-photo"
+          src="/images/swimmer-goggles-hero.jpg"
+          alt="Child swimmer in goggles during lesson"
+          [width]="1200"
+          [height]="760"
+        ></app-media-frame>
+      </div>
+
+      <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submit()" novalidate appReveal>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" type="text" formControlName="name">
+          @if (showError('name', 'required')) {
+            <p class="field-error">Please enter your name.</p>
+          }
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email">
+          @if (showError('email', 'required')) {
+            <p class="field-error">Please enter your email.</p>
+          }
+          @if (showError('email', 'email')) {
+            <p class="field-error">Please enter a valid email address.</p>
+          }
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" formControlName="phone">
+        </div>
+        <div class="form-group">
+          <label for="lane">Lane of interest</label>
+          <select id="lane" formControlName="lane" (change)="syncLaneSelection()">
+            <option value="">Select a lane</option>
+            <option>Lane 1 - Water Babies</option>
+            <option>Lane 2 - Beginners</option>
+            <option>Lane 3 - Intermediate</option>
+            <option>Lane 4 - Advanced / Stroke Refinement</option>
+            <option>Lane 5 - Adult Lessons</option>
+          </select>
+          @if (showError('lane', 'required')) {
+            <p class="field-error">Please select a lane.</p>
+          }
+        </div>
+        <div class="form-group form-group-full">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" formControlName="message" placeholder="Share your swimmer's age, current comfort level, and any schedule goals."></textarea>
+        </div>
+        <button class="button button-primary" type="submit">Draft Email Inquiry</button>
+      </form>
+
+      <aside class="contact-panel" appReveal>
+        <p class="eyebrow">Direct contact</p>
+        <h2>Reach Ripple Swim Co.</h2>
+        <div class="contact-chip-row" aria-label="Availability notes">
+          <span class="contact-chip">Fastest response through the inquiry form</span>
+          <span class="contact-chip">Family questions welcome</span>
+        </div>
+        <ul class="contact-list">
+          <li><strong>Contact method:</strong> Inquiry form or direct email draft</li>
+          <li><strong>Service area:</strong> Local families and swimmers by appointment</li>
+          <li><strong>Scheduling:</strong> Lesson placement confirmed after inquiry review</li>
+          <li><strong>Hours:</strong> Mon-Thu 3:00 PM-7:00 PM, Sat 9:00 AM-1:00 PM</li>
+        </ul>
+        <p class="contact-note">Add your direct phone number, email inbox, and lesson address here when those details are ready for publishing.</p>
+      </aside>
+    </div>
+  </section>
+</div>

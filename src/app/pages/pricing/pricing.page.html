@@ -1,0 +1,145 @@
+<div class="page-pricing">
+  <section class="inner-hero pricing-hero">
+    <div class="container pricing-hero-grid">
+      <div class="pricing-hero-copy">
+        <p class="eyebrow">Pricing and packages</p>
+        <h1>Flexible options for steady progress in the pool.</h1>
+        <p>Choose the schedule that fits your swimmer now, then adjust as goals or confidence change over time.</p>
+        <div class="pricing-hero-pill-row" aria-label="Pricing highlights">
+          <span class="pricing-hero-pill">No confusing plan names</span>
+          <span class="pricing-hero-pill">Built for confidence and consistency</span>
+          <span class="pricing-hero-pill">Easy to compare by routine</span>
+        </div>
+      </div>
+      <div class="pricing-hero-panel section-shell">
+        <p class="eyebrow">Current spotlight</p>
+        <h2>{{ selectedPlan().title }}</h2>
+        <p class="pricing-hero-panel-copy">{{ selectedPlan().idealFor }}</p>
+        <div class="pricing-hero-metrics" aria-label="Selected plan summary">
+          <app-stat-counter [value]="'0' + selectedPlan().momentum" label="momentum level"></app-stat-counter>
+          <app-stat-counter [value]="selectedPlan().features.length.toString()" label="included benefits"></app-stat-counter>
+          <app-stat-counter [value]="selectedPlan().rhythm" label="lesson rhythm"></app-stat-counter>
+        </div>
+        <a class="button button-primary" routerLink="/contact">Ask About {{ selectedPlan().title }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-shell pricing-intro" appReveal>
+        <div>
+          <p class="eyebrow">Simple options</p>
+          <h2>Start small or build a steady swim routine.</h2>
+        </div>
+        <div class="pricing-intro-copy">
+          <p>These packages are structured to make comparisons quick for parents deciding between a trial, a short pack, or a recurring commitment.</p>
+          <div class="pricing-points" aria-label="Pricing benefits">
+            <span class="pricing-point">Easy comparisons</span>
+            <span class="pricing-point">Recurring options</span>
+            <span class="pricing-point">Progress-focused plans</span>
+          </div>
+          <div class="pricing-guide">
+            <div class="pricing-guide-summary">
+              <p class="eyebrow">Suggested fit</p>
+              <h3>{{ selectedPlan().title }}</h3>
+              <p class="price price-inline">{{ selectedPlan().price }}</p>
+              <p>{{ selectedPlan().summary }}</p>
+              <div class="pricing-rhythm-card">
+                <div class="pricing-rhythm-head">
+                  <strong>{{ selectedPlan().rhythm }}</strong>
+                  <span>Commitment rhythm</span>
+                </div>
+                <div class="pricing-rhythm-track" aria-hidden="true">
+                  @for (step of commitmentSteps; track step) {
+                    <span [class.is-active]="step <= selectedPlan().momentum"></span>
+                  }
+                </div>
+                <p>{{ selectedPlan().idealFor }}</p>
+                <p class="pricing-rhythm-note">{{ selectedPlan().note }}</p>
+              </div>
+            </div>
+            <app-option-picker
+              ariaLabel="Pricing goals"
+              [options]="goalOptions()"
+              [selectedId]="selectedPlanId()"
+              (selected)="selectPlan($event)"
+            ></app-option-picker>
+          </div>
+          <app-media-frame
+            class="pricing-hero-photo"
+            src="/images/smiling-swim-instructor.jpg"
+            alt="Swimming lesson with instructor guidance at poolside"
+            [width]="1200"
+            [height]="800"
+          ></app-media-frame>
+        </div>
+      </div>
+      <div class="pricing-plan-stage" appReveal>
+        <div class="pricing-stage-copy section-shell">
+          <p class="eyebrow">Plan spotlight</p>
+          <h2>{{ selectedPlan().title }} feels like the clearest fit right now.</h2>
+          <p>{{ selectedPlan().summary }}</p>
+          <div class="pricing-stage-feature-list" aria-label="Selected plan benefits">
+            @for (feature of selectedPlan().features; track feature) {
+              <span>{{ feature }}</span>
+            }
+          </div>
+          <p class="pricing-stage-note">{{ selectedPlan().note }}</p>
+        </div>
+        <div class="pricing-stage-preview">
+          <app-option-picker
+            class="option-picker-dark"
+            ariaLabel="Pricing plan preview"
+            [options]="stagePreviewOptions()"
+            [selectedId]="selectedPlanId()"
+            (selected)="selectPlan($event)"
+          ></app-option-picker>
+        </div>
+      </div>
+      <div class="pricing-grid" appReveal>
+        @for (plan of pricingPlans; track plan.id) {
+          <article
+            class="pricing-card"
+            [class.featured]="plan.featured"
+            [class.is-selected-plan]="selectedPlanId() === plan.id"
+            (mouseenter)="selectPlan(plan.id)"
+            (focusin)="selectPlan(plan.id)"
+          >
+            @if (plan.featured) {
+              <p class="badge">Most Popular</p>
+            }
+            <h2>{{ plan.title }}</h2>
+            <p class="price">{{ plan.price }}</p>
+            <p class="pricing-summary">{{ plan.summary }}</p>
+            <div class="pricing-card-meter" aria-hidden="true">
+              @for (step of commitmentSteps; track step) {
+                <span [class.is-active]="step <= plan.momentum"></span>
+              }
+            </div>
+            <p class="pricing-card-rhythm">{{ plan.rhythm }}</p>
+            <ul>
+              @for (feature of plan.features; track feature) {
+                <li>{{ feature }}</li>
+              }
+            </ul>
+            <a class="button" [class.button-primary]="plan.primary" [class.button-secondary]="!plan.primary" routerLink="/contact">{{ plan.buttonLabel }}</a>
+          </article>
+        }
+      </div>
+      <div class="pricing-support-grid" appReveal>
+        <article class="support-card">
+          <p class="eyebrow">Good to know</p>
+          <h3>Policies can live here cleanly.</h3>
+          <p>Use this area for registration fees, cancellation windows, makeup policy, and sibling notes without crowding the pricing cards.</p>
+        </article>
+        <article class="support-card support-card-accent">
+          <p class="eyebrow">Best use</p>
+          <h3>Guide families toward the right plan.</h3>
+          <p>Short recommendations like “4-class packs work well for first-time swimmers” or “8-class packs are best for momentum” fit well here.</p>
+        </article>
+      </div>
+      <p class="pricing-note">Final rates, registration details, and policy notes can be confirmed here before launch.</p>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,85 @@
+@use '../../../styles/tokens';
+
+.option-picker {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.option-picker-2col {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+	.option-picker-2col {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 720px) {
+	.option-picker-button:has(.option-picker-badge) {
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+	}
+}
+
+.option-picker-button {
+	display: grid;
+	gap: 0.3rem;
+	padding: 0.95rem 1rem;
+	border: 1px solid rgba(tokens.$pool-deep, 0.1);
+	border-radius: 22px;
+	background: rgba(255, 255, 255, 0.82);
+	text-align: left;
+	cursor: pointer;
+	color: tokens.$muted;
+	transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.option-picker-button:has(.option-picker-badge) {
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 1rem;
+}
+
+.option-picker-copy {
+	display: grid;
+	gap: 0.2rem;
+}
+
+.option-picker-copy strong {
+	color: tokens.$pool-deep;
+}
+
+.option-picker-badge {
+	font-family: tokens.$font-display;
+	font-size: 1.8rem;
+	line-height: 1;
+	color: tokens.$pool-mid;
+}
+
+.option-picker-button:hover,
+.option-picker-button:focus-visible,
+.option-picker-button.is-active {
+	transform: translateY(-2px);
+	border-color: rgba(tokens.$pool-bright, 0.34);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(tokens.$surface-tint, 0.88));
+	box-shadow: 0 18px 38px rgba(tokens.$pool-deep, 0.12);
+}
+
+:host(.option-picker-dark) .option-picker-button {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.14);
+	color: rgba(255, 255, 255, 0.8);
+}
+
+:host(.option-picker-dark) .option-picker-copy strong {
+	color: white;
+}
+
+:host(.option-picker-dark) .option-picker-button:hover,
+:host(.option-picker-dark) .option-picker-button:focus-visible,
+:host(.option-picker-dark) .option-picker-button.is-active {
+	background: rgba(255, 255, 255, 0.18);
+	border-color: rgba(tokens.$sun-pop, 0.42);
+	box-shadow: 0 18px 36px rgba(tokens.$pool-deep, 0.16);
+}

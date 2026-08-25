@@ -1,0 +1,1 @@
+Placeholder folder for future auth and access guards once booking requires accounts or login.
