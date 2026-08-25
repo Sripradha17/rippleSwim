@@ -18,12 +18,18 @@ import { FooterComponent } from './shared/footer/footer.component';
             <p>Loading a cleaner, calmer poolside experience.</p>
           </div>
           <div class="loader-scene">
-            <div class="loader-ripples" aria-hidden="true">
-              <span></span><span></span><span></span>
+            <div class="loader-waves" aria-hidden="true">
+              <span class="loader-wave loader-wave-back"></span>
+              <span class="loader-wave loader-wave-front"></span>
             </div>
-            <div class="loader-swimline">
-              <span class="loader-swimmer-dot"></span>
-              <span class="loader-swimmer-trail"></span>
+            <div class="loader-swimmer-track" aria-hidden="true">
+              <svg class="loader-swimmer-bob" viewBox="0 0 120 60" fill="none">
+                <path d="M52,30 Q40,14 26,10" stroke="#fff" stroke-width="6" stroke-linecap="round" />
+                <ellipse cx="62" cy="32" rx="26" ry="8" fill="#fff" transform="rotate(-8 62 32)" />
+                <circle cx="90" cy="24" r="8" fill="#fff" />
+                <path d="M78,26 Q92,34 100,48" stroke="#fff" stroke-width="6" stroke-linecap="round" />
+                <path d="M38,34 Q24,38 14,32 Q8,40 2,36" stroke="#fff" stroke-width="6" stroke-linecap="round" />
+              </svg>
             </div>
             <div class="loader-status">
               <span>Loading lanes</span>

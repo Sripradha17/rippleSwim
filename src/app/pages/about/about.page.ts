@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { BubbleFieldComponent } from '../../shared/bubble-field/bubble-field.component';
 import { MediaFrameComponent } from '../../shared/media-frame/media-frame.component';
 import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
+import { WaveDividerComponent } from '../../shared/wave-divider/wave-divider.component';
 
 interface StoryFocus {
   id: number;
@@ -14,7 +16,7 @@ interface StoryFocus {
 @Component({
   selector: 'app-about-page',
   standalone: true,
-  imports: [RouterLink, MediaFrameComponent, RevealOnScrollDirective],
+  imports: [RouterLink, MediaFrameComponent, RevealOnScrollDirective, WaveDividerComponent, BubbleFieldComponent],
   templateUrl: './about.page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -1,74 +1,42 @@
 <div class="page-classes">
   <section class="inner-hero classes-hero">
+    <app-bubble-field></app-bubble-field>
     <div class="container narrow">
       <p class="eyebrow">Classes and levels</p>
       <h1>Find the right lane for every swimmer.</h1>
       <p>Each lane is built around age, comfort level, and the pace needed for strong fundamentals in and around the water.</p>
     </div>
+    <app-wave-divider></app-wave-divider>
   </section>
 
   <section class="section section-light">
-    <div class="container lane-stack">
-      <div class="section-shell class-overview" appReveal>
-        <div>
-          <p class="eyebrow">Placement philosophy</p>
-          <h2>We place swimmers by confidence, not just age.</h2>
-        </div>
-        <div class="class-overview-copy">
-          <p>Each lane has a clear purpose, but instructors can recommend a better fit after learning more about water comfort, past lessons, and current goals.</p>
-          <div class="class-pill-row" aria-label="Class strengths">
-            <span class="class-pill">Small groups</span>
-            <span class="class-pill">Progressive curriculum</span>
-            <span class="class-pill">Supportive coaching</span>
-          </div>
-          <div class="class-guide">
-            <div class="class-summary">
-              <p class="eyebrow">Best fit preview</p>
-              <h3>Lane {{ selectedLane().id }}: {{ selectedLane().title }}</h3>
-              <p class="lane-meta">{{ selectedLane().meta }}</p>
-              <p>{{ selectedLane().description }}</p>
-              <div class="class-pace-panel">
-                <div class="class-pace-head">
-                  <strong>{{ selectedLane().confidenceLabel }}</strong>
-                  <span>Lesson pace</span>
-                </div>
-                <div class="class-pace-track" aria-hidden="true">
-                  @for (step of paceSteps; track step) {
-                    <span [class.is-active]="step <= selectedLane().pace"></span>
-                  }
-                </div>
-                <p class="class-coach-note"><strong>Coach cue:</strong> {{ selectedLane().coachCue }}</p>
+    <div class="container">
+      <div class="lane-overview-grid">
+        @for (lane of lanes; track lane.id; let isFirst = $first) {
+          <article class="lane-card lane-card-photo" [class.accent-card]="lane.accent" appReveal>
+            <app-media-frame
+              class="lane-card-media"
+              [src]="lane.image"
+              [alt]="lane.imageAlt"
+              [width]="800"
+              [height]="600"
+              [priority]="isFirst"
+            ></app-media-frame>
+            <span class="lane-card-badge">Lane {{ lane.id }}</span>
+            <div class="lane-card-body">
+              <span class="lane-card-flag">{{ lane.confidenceLabel }}</span>
+              <h2>{{ lane.title }}</h2>
+              <p class="lane-meta">{{ lane.meta }}</p>
+              <p class="lane-card-summary">{{ lane.coachCue }}</p>
+              <div class="lane-outcomes" aria-label="Lane outcomes">
+                @for (outcome of lane.outcomes; track outcome) {
+                  <span class="lane-outcome">{{ outcome }}</span>
+                }
               </div>
             </div>
-            <app-option-picker
-              ariaLabel="Lane fit guide"
-              [options]="pickerOptions()"
-              [selectedId]="selectedLaneId()"
-              (selected)="focusLane($event)"
-            ></app-option-picker>
-          </div>
-          <app-media-frame
-            class="class-hero-photo"
-            src="/images/underwater-young-swimmer.jpg"
-            alt="Young swimmer underwater in a lesson setting"
-            [width]="1200"
-            [height]="800"
-          ></app-media-frame>
-        </div>
+          </article>
+        }
       </div>
-      @for (lane of lanes; track lane.id) {
-        <article class="lane-card detailed" [class.accent-card]="lane.accent" [class.is-featured-lane]="selectedLaneId() === lane.id" appReveal>
-          <span class="lane-ghost-number" aria-hidden="true">{{ lane.id }}</span>
-          <div class="lane-heading-row"><p class="lane-number">Lane {{ lane.id }}</p><h2>{{ lane.title }}</h2></div>
-          <p class="lane-meta">{{ lane.meta }}</p>
-          <p>{{ lane.description }}</p>
-          <div class="lane-outcomes" aria-label="Lane outcomes">
-            @for (outcome of lane.outcomes; track outcome) {
-              <span class="lane-outcome">{{ outcome }}</span>
-            }
-          </div>
-        </article>
-      }
     </div>
   </section>
 

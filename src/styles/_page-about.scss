@@ -2,8 +2,14 @@
 
 .about-hero {
 	background:
-		linear-gradient(120deg, rgba(tokens.$bg, 0.85), rgba(tokens.$surface-tint, 0.92)),
-		radial-gradient(circle at top left, rgba(tokens.$coral-pop, 0.11), transparent 20%);
+		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.88), rgba(tokens.$pool-mid, 0.7)),
+		url('/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
+	color: white;
+}
+
+.about-hero p:last-child,
+.about-hero .eyebrow {
+	color: rgba(255, 255, 255, 0.86);
 }
 
 .about-story-section {
@@ -133,7 +139,7 @@
 .about-photo-strip {
 	margin-top: 2.5rem;
 	display: grid;
-	grid-template-columns: 0.95fr 0.75fr 1.3fr;
+	grid-template-columns: 0.85fr 1.15fr;
 	gap: 1rem;
 	align-items: stretch;
 }

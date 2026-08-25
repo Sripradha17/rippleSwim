@@ -122,11 +122,16 @@
 
 .lane-spotlight-visual {
 	position: relative;
-	min-height: 25rem;
+	aspect-ratio: 900 / 820;
 	border-radius: 28px;
 	overflow: hidden;
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
 	background: rgba(255, 255, 255, 0.08);
+}
+
+.lane-spotlight-visual app-media-frame {
+	display: block;
+	height: 100%;
 }
 
 .lane-spotlight-visual img {

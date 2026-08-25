@@ -1,7 +1,6 @@
 @media (max-width: 1100px) {
 	.hero-stats,
-	.lane-preview-grid,
-	.pricing-grid {
+	.lane-preview-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
@@ -10,8 +9,6 @@
 		grid-template-columns: 1fr;
 	}
 
-	.class-overview,
-	.class-guide,
 	.pricing-intro,
 	.pricing-guide,
 	.contact-intro,
@@ -46,8 +43,16 @@
 		grid-template-columns: 1fr;
 	}
 
+	.lane-overview-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.pricing-grid {
+		grid-template-columns: 1fr;
+	}
+
 	.lane-spotlight-visual {
-		min-height: 20rem;
+		aspect-ratio: 1;
 	}
 }
 
@@ -62,7 +67,8 @@
 	.contact-layout,
 	.founder-card,
 	.cta-band,
-	.hero-stats {
+	.hero-stats,
+	.home-testimonial-grid {
 		grid-template-columns: 1fr;
 	}
 
@@ -94,7 +100,6 @@
 	.card-grid-3,
 	.hero-stats,
 	.lane-preview-grid,
-	.pricing-grid,
 	.contact-form,
 	.about-photo-strip {
 		grid-template-columns: 1fr;
@@ -117,10 +122,13 @@
 	}
 
 	.story-hero-photo,
-	.class-hero-photo,
 	.pricing-hero-photo,
 	.contact-summary-photo {
 		min-height: 14rem;
+	}
+
+	.lane-overview-grid {
+		grid-template-columns: 1fr;
 	}
 
 	.pricing-hero-metrics {
@@ -135,14 +143,12 @@
 		transform: none;
 	}
 
-	.class-pace-head,
 	.pricing-rhythm-head,
 	.contact-readiness-head {
 		align-items: start;
 	}
 
 	.contact-intro,
-	.class-overview,
 	.pricing-intro,
 	.pricing-support-grid {
 		gap: 1rem;
@@ -170,7 +176,7 @@
 	}
 
 	.lane-spotlight-visual {
-		min-height: 16rem;
+		aspect-ratio: 1;
 	}
 }
 

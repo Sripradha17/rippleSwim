@@ -11,6 +11,18 @@
 	transform: translateY(0);
 }
 
+.card-grid > [appReveal],
+.lane-overview-grid > [appReveal],
+.pricing-grid > [appReveal],
+.about-photo-strip > [appReveal] {
+	@for $i from 1 through 6 {
+		&:nth-child(#{$i}) {
+			transition-delay: #{($i - 1) * 90}ms;
+		}
+	}
+}
+
+
 @keyframes bubble-rise {
 	0% {
 		transform: translate3d(0, 0, 0) scale(0.8);
@@ -74,33 +86,66 @@
 	}
 }
 
-@keyframes swimline-glide {
+@keyframes swimmer-travel {
 	0% {
-		left: 0;
-	}
-
-	50% {
-		left: 50%;
+		left: -10%;
 	}
 
 	100% {
-		left: 100%;
+		left: 108%;
 	}
 }
 
-@keyframes ripple-ring {
-	0% {
-		transform: scale(0.4);
-		opacity: 0;
-	}
-
-	25% {
-		opacity: 0.42;
-	}
-
+@keyframes swimmer-bob {
+	0%,
 	100% {
-		transform: scale(1.8);
-		opacity: 0;
+		transform: translateY(0) rotate(-4deg);
+	}
+
+	50% {
+		transform: translateY(-7px) rotate(4deg);
+	}
+}
+
+@keyframes loader-wave-drift-back {
+	from {
+		background-position-x: 0;
+	}
+
+	to {
+		background-position-x: -200px;
+	}
+}
+
+@keyframes loader-wave-drift-front {
+	from {
+		background-position-x: 0;
+	}
+
+	to {
+		background-position-x: -140px;
+	}
+}
+
+@keyframes wave-bob-back {
+	0%,
+	100% {
+		background-position-y: 100%;
+	}
+
+	50% {
+		background-position-y: calc(100% - 5px);
+	}
+}
+
+@keyframes wave-bob-front {
+	0%,
+	100% {
+		background-position-y: 100%;
+	}
+
+	50% {
+		background-position-y: calc(100% - 6px);
 	}
 }
 

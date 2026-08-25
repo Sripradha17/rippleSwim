@@ -1,5 +1,6 @@
 <div class="page-pricing">
   <section class="inner-hero pricing-hero">
+    <app-bubble-field></app-bubble-field>
     <div class="container pricing-hero-grid">
       <div class="pricing-hero-copy">
         <p class="eyebrow">Pricing and packages</p>
@@ -23,6 +24,7 @@
         <a class="button button-primary" routerLink="/contact">Ask About {{ selectedPlan().title }}</a>
       </div>
     </div>
+    <app-wave-divider></app-wave-divider>
   </section>
 
   <section class="section section-light">
@@ -63,41 +65,25 @@
               ariaLabel="Pricing goals"
               [options]="goalOptions()"
               [selectedId]="selectedPlanId()"
+              [columns]="2"
               (selected)="selectPlan($event)"
             ></app-option-picker>
           </div>
           <app-media-frame
             class="pricing-hero-photo"
-            src="/images/smiling-swim-instructor.jpg"
-            alt="Swimming lesson with instructor guidance at poolside"
+            src="/images/underwater-young-swimmer.jpg"
+            alt="Swimmer practicing in the pool"
             [width]="1200"
             [height]="800"
+            [priority]="true"
           ></app-media-frame>
         </div>
       </div>
-      <div class="pricing-plan-stage" appReveal>
-        <div class="pricing-stage-copy section-shell">
-          <p class="eyebrow">Plan spotlight</p>
-          <h2>{{ selectedPlan().title }} feels like the clearest fit right now.</h2>
-          <p>{{ selectedPlan().summary }}</p>
-          <div class="pricing-stage-feature-list" aria-label="Selected plan benefits">
-            @for (feature of selectedPlan().features; track feature) {
-              <span>{{ feature }}</span>
-            }
-          </div>
-          <p class="pricing-stage-note">{{ selectedPlan().note }}</p>
-        </div>
-        <div class="pricing-stage-preview">
-          <app-option-picker
-            class="option-picker-dark"
-            ariaLabel="Pricing plan preview"
-            [options]="stagePreviewOptions()"
-            [selectedId]="selectedPlanId()"
-            (selected)="selectPlan($event)"
-          ></app-option-picker>
-        </div>
+      <div class="section-heading" appReveal>
+        <p class="eyebrow">Compare plans</p>
+        <h2>Every package side by side.</h2>
       </div>
-      <div class="pricing-grid" appReveal>
+      <div class="pricing-grid">
         @for (plan of pricingPlans; track plan.id) {
           <article
             class="pricing-card"
@@ -105,6 +91,7 @@
             [class.is-selected-plan]="selectedPlanId() === plan.id"
             (mouseenter)="selectPlan(plan.id)"
             (focusin)="selectPlan(plan.id)"
+            appReveal
           >
             @if (plan.featured) {
               <p class="badge">Most Popular</p>

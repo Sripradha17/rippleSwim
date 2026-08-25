@@ -2,10 +2,12 @@ import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, DestroyRef, PLATFORM_ID, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { BubbleFieldComponent } from '../../shared/bubble-field/bubble-field.component';
 import { MediaFrameComponent } from '../../shared/media-frame/media-frame.component';
 import { OptionPickerComponent } from '../../shared/option-picker/option-picker.component';
 import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
 import { StatCounterComponent } from '../../shared/stat-counter/stat-counter.component';
+import { WaveDividerComponent } from '../../shared/wave-divider/wave-divider.component';
 
 interface HomeLane {
   id: number;
@@ -26,7 +28,7 @@ interface HomeTestimonial {
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink, MediaFrameComponent, OptionPickerComponent, RevealOnScrollDirective, StatCounterComponent],
+  imports: [RouterLink, MediaFrameComponent, OptionPickerComponent, RevealOnScrollDirective, StatCounterComponent, WaveDividerComponent, BubbleFieldComponent],
   templateUrl: './home.page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -49,7 +51,7 @@ export class HomePage {
       title: 'Beginners',
       meta: '4-6 years | Small group | 35 minutes',
       description: 'Floating, kicking, breath control, and confidence around the wall and shallow water.',
-      image: '/images/poolside-lesson.jpg',
+      image: '/images/underwater-young-swimmer.jpg',
       imageAlt: 'Young swimmers taking part in a beginner swim class',
     },
     {
@@ -57,15 +59,15 @@ export class HomePage {
       title: 'Intermediate',
       meta: '7-12 years | Small group | 45 minutes',
       description: 'Stroke foundations, safe deep-water skills, and smoother movement across the pool.',
-      image: '/images/underwater-young-swimmer.jpg',
-      imageAlt: 'Young swimmer practicing underwater technique',
+      image: '/images/instructor-supporting-swimmer.jpg',
+      imageAlt: 'Swimmer practicing technique at the pool',
     },
     {
       id: 5,
       title: 'Adult Lessons',
       meta: '18+ | Private or paired | 45 minutes',
       description: 'Supportive coaching for beginners, returning swimmers, and adults refining technique.',
-      image: '/images/smiling-swim-instructor.jpg',
+      image: '/images/swimmer-goggles-hero.jpg',
       imageAlt: 'Supportive swim instructor welcoming a returning swimmer',
     },
   ];

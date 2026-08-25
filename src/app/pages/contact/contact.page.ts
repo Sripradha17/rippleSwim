@@ -2,9 +2,11 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
 import { ContactService } from '../../core/services/contact.service';
+import { BubbleFieldComponent } from '../../shared/bubble-field/bubble-field.component';
 import { MediaFrameComponent } from '../../shared/media-frame/media-frame.component';
 import { OptionPickerComponent } from '../../shared/option-picker/option-picker.component';
 import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
+import { WaveDividerComponent } from '../../shared/wave-divider/wave-divider.component';
 
 interface InquiryPreset {
   id: number;
@@ -17,7 +19,7 @@ interface InquiryPreset {
 @Component({
   selector: 'app-contact-page',
   standalone: true,
-  imports: [ReactiveFormsModule, MediaFrameComponent, OptionPickerComponent, RevealOnScrollDirective],
+  imports: [ReactiveFormsModule, MediaFrameComponent, OptionPickerComponent, RevealOnScrollDirective, WaveDividerComponent, BubbleFieldComponent],
   templateUrl: './contact.page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

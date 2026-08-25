@@ -41,6 +41,20 @@
 	box-shadow: 0 18px 42px rgba(tokens.$pool-deep, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
+.info-card-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.25rem;
+	height: 3.25rem;
+	margin-bottom: 1rem;
+	border-radius: 18px;
+	background: linear-gradient(135deg, rgba(tokens.$pool-bright, 0.22), rgba(tokens.$seafoam, 0.4));
+	font-size: 1.6rem;
+	position: relative;
+	z-index: 1;
+}
+
 .info-card:hover,
 .lane-card:hover,
 .pricing-card:hover,
@@ -113,7 +127,7 @@
 	padding: 3rem;
 	background:
 		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.9), rgba(tokens.$pool-mid, 0.74)),
-		url('/images/poolside-lesson.jpg') center/cover no-repeat;
+		url('/images/underwater-young-swimmer.jpg') center/cover no-repeat;
 	border-radius: tokens.$radius-lg;
 	color: white;
 	box-shadow: tokens.$shadow-strong;
@@ -169,7 +183,7 @@
 	padding: 2rem;
 	background:
 		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.95), rgba(tokens.$pool-mid, 0.78)),
-		url('/images/poolside-lesson.jpg') center/cover no-repeat;
+		url('/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
 	border-radius: tokens.$radius-lg;
 	color: white;
 	box-shadow: tokens.$shadow-strong;

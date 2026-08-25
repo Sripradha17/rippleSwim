@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { BubbleFieldComponent } from '../../shared/bubble-field/bubble-field.component';
 import { MediaFrameComponent } from '../../shared/media-frame/media-frame.component';
 import { OptionPickerComponent } from '../../shared/option-picker/option-picker.component';
 import { RevealOnScrollDirective } from '../../shared/reveal-on-scroll.directive';
 import { StatCounterComponent } from '../../shared/stat-counter/stat-counter.component';
+import { WaveDividerComponent } from '../../shared/wave-divider/wave-divider.component';
 
 interface PricingPlan {
   id: number;
@@ -31,7 +33,7 @@ interface PricingGoal {
 @Component({
   selector: 'app-pricing-page',
   standalone: true,
-  imports: [RouterLink, MediaFrameComponent, OptionPickerComponent, RevealOnScrollDirective, StatCounterComponent],
+  imports: [RouterLink, MediaFrameComponent, OptionPickerComponent, RevealOnScrollDirective, StatCounterComponent, WaveDividerComponent, BubbleFieldComponent],
   templateUrl: './pricing.page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -119,11 +121,7 @@ export class PricingPage {
   ];
 
   readonly goalOptions = computed(() =>
-    this.pricingGoals.map((goal) => ({ id: goal.planId, label: goal.label, detail: goal.detail })),
-  );
-
-  readonly stagePreviewOptions = computed(() =>
-    this.pricingPlans.map((plan) => ({ id: plan.id, label: plan.title, detail: plan.rhythm })),
+    this.pricingGoals.map((goal, index) => ({ id: goal.planId, label: goal.label, detail: goal.detail, badge: `0${index + 1}` })),
   );
 
   readonly selectedPlanId = signal(3);

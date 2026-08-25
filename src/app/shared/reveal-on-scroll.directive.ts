@@ -23,7 +23,7 @@ export class RevealOnScrollDirective implements OnInit {
           observer.disconnect();
         }
       }
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1, rootMargin: '0px 0px 180px 0px' });
 
     observer.observe(this.elementRef.nativeElement);
   }

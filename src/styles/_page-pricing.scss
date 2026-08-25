@@ -3,7 +3,7 @@
 .pricing-hero {
 	background:
 		linear-gradient(135deg, rgba(tokens.$pool-deep, 0.96), rgba(tokens.$pool-mid, 0.8)),
-		url('/images/poolside-lesson.jpg') center/cover no-repeat;
+		url('/images/swimmer-goggles-hero.jpg') center/cover no-repeat;
 	color: white;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .pricing-grid {
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	align-items: stretch;
 }
 
@@ -138,73 +138,12 @@
 	color: tokens.$pool-deep;
 }
 
-.pricing-plan-stage {
-	display: grid;
-	grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
-	gap: 1.25rem;
-	align-items: stretch;
-	margin-bottom: 1.75rem;
-}
-
-.pricing-stage-copy {
-	background:
-		linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(tokens.$surface-tint, 0.9)),
-		radial-gradient(circle at 92% 24%, rgba(tokens.$pool-electric, 0.16), transparent 18%);
-}
-
-.pricing-stage-feature-list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.7rem;
-	margin: 1.2rem 0;
-}
-
-.pricing-stage-feature-list span {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.5rem 0.8rem;
-	border-radius: tokens.$radius-pill;
-	background: rgba(tokens.$pool-deep, 0.08);
-	border: 1px solid rgba(tokens.$pool-deep, 0.08);
-	font-size: 0.9rem;
-	font-weight: 700;
-	color: tokens.$pool-deep;
-}
-
-.pricing-stage-note {
-	margin-bottom: 0;
-	font-weight: 600;
-	color: tokens.$pool-mid;
-}
-
-.pricing-stage-preview {
-	display: grid;
-	gap: 0.85rem;
-	align-content: start;
-	padding: 1.2rem;
-	border-radius: 30px;
-	background: linear-gradient(180deg, rgba(tokens.$pool-deep, 0.92), rgba(tokens.$pool-mid, 0.82));
-	box-shadow: tokens.$shadow-strong;
-	position: relative;
-	overflow: hidden;
-}
-
-.pricing-stage-preview::before {
-	content: '';
-	position: absolute;
-	inset: auto -14% -24% auto;
-	width: 78%;
-	height: 56%;
-	border-radius: 50%;
-	background: radial-gradient(circle, rgba(tokens.$pool-electric, 0.24), transparent 70%);
-}
-
 .pricing-hero-photo {
 	margin: 0;
 	border-radius: 28px;
 	position: relative;
 	box-shadow: 0 26px 58px rgba(tokens.$pool-deep, 0.16);
-	min-height: 18rem;
+	min-height: 16rem;
 	animation: drift-card 12s ease-in-out infinite;
 }
 
@@ -294,6 +233,7 @@
 	box-shadow: tokens.$shadow-strong;
 	position: relative;
 	overflow: hidden;
+	min-height: 100%;
 }
 
 .pricing-card-meter {
@@ -358,6 +298,10 @@
 .featured {
 	border: 2px solid tokens.$sun-pop;
 	background: linear-gradient(180deg, rgba(tokens.$coral-pop, 0.92), rgba(tokens.$pool-mid, 0.96));
+}
+
+.pricing-card .button {
+	margin-top: auto;
 }
 
 .pricing-note {

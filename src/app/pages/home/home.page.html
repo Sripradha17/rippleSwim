@@ -1,9 +1,7 @@
 <div class="page-home">
   <section class="hero hero-home">
     <div class="hero-photo" aria-hidden="true"></div>
-    <div class="hero-bubbles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
+    <app-bubble-field></app-bubble-field>
     <div class="container hero-grid">
       <div class="hero-copy">
         <div class="hero-kicker-list">
@@ -16,7 +14,7 @@
         <p class="hero-text">From first splashes to stroke refinement, Ripple Swim Co. helps local families learn with patience, safety, and real progress.</p>
         <div class="hero-actions">
           <a class="button button-primary" routerLink="/classes">View Classes</a>
-          <a class="button button-secondary" routerLink="/contact">Book a Lesson</a>
+          <a class="button button-secondary" routerLink="/contact">Contact Us</a>
         </div>
         <div class="hero-stats" aria-label="Ripple Swim Co. strengths">
           <div class="hero-stat">
@@ -47,19 +45,15 @@
         </div>
         <div class="hero-feature-card hero-secondary-card">
           <app-media-frame
-            src="/images/poolside-lesson.jpg"
-            alt="Swimming lesson moment in a pool"
+            src="/images/instructor-supporting-swimmer.jpg"
+            alt="Swimmer diving into the pool"
             [width]="700"
             [height]="520"
           ></app-media-frame>
         </div>
       </div>
     </div>
-    <div class="wave-divider" aria-hidden="true">
-      <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
-        <path d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,140L1380,140C1320,140,1200,140,1080,140C960,140,840,140,720,140C600,140,480,140,360,140C240,140,120,140,60,140L0,140Z" fill="#fffaf2"></path>
-      </svg>
-    </div>
+    <app-wave-divider></app-wave-divider>
   </section>
 
   <section class="section section-light home-reasons">
@@ -68,16 +62,19 @@
         <p class="eyebrow">Why families choose Ripple</p>
         <h2>Thoughtful instruction from the very first lesson.</h2>
       </div>
-      <div class="card-grid card-grid-3" appReveal>
-        <article class="info-card">
+      <div class="card-grid card-grid-3">
+        <article class="info-card" appReveal>
+          <span class="info-card-icon" aria-hidden="true">🏅</span>
           <h3>Certified instructors</h3>
           <p>Every lesson is led by trained, safety-minded teachers who know how to make the water feel welcoming.</p>
         </article>
-        <article class="info-card">
+        <article class="info-card" appReveal>
+          <span class="info-card-icon" aria-hidden="true">👥</span>
           <h3>Small class sizes</h3>
           <p>We keep each group intentionally small so swimmers receive close coaching, steady encouragement, and space to grow.</p>
         </article>
-        <article class="info-card">
+        <article class="info-card" appReveal>
+          <span class="info-card-icon" aria-hidden="true">🌊</span>
           <h3>All ages and levels</h3>
           <p>Whether it is a first kick or a stroke tune-up, we meet swimmers where they are and move at the right pace.</p>
         </article>
@@ -123,6 +120,7 @@
             [alt]="selectedLane().imageAlt"
             [width]="900"
             [height]="820"
+            [priority]="true"
           ></app-media-frame>
         </div>
       </article>

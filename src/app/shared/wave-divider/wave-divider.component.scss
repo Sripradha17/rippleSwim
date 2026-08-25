@@ -1,0 +1,86 @@
+:host {
+	--wave-color-back: rgba(13, 127, 163, 0.42);
+	--wave-color-mid: rgba(0, 196, 223, 0.5);
+	--wave-color-front: rgba(255, 255, 255, 0.88);
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 110px;
+	display: block;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 2;
+}
+
+// One seamless, periodic wave tile (start-y === end-y) shared by every layer.
+// Same crest-then-trough construction as the loader's waves (two symmetric
+// bezier humps per tile, control points pulled in tight for a defined peak)
+// rather than a single broad hump, so the repeat reads as an actual wave
+// cycle instead of a row of plain bumps.
+// preserveAspectRatio="none" is what stops the browser from letterboxing the
+// tile inside each mask-size box - without it, every repeat leaves a sliver
+// of transparent padding at the seam, which is what reads as "straight ends".
+$wave-shape: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath d='M0,50 c50,-20 50,-20 100,0 c50,20 50,20 100,0 L200,100 L0,100 Z' fill='%23000'/%3E%3C/svg%3E";
+
+.wave-layer {
+	position: absolute;
+	inset: 0;
+	-webkit-mask-repeat: repeat-x;
+	mask-repeat: repeat-x;
+	-webkit-mask-position: 0 100%;
+	mask-position: 0 100%;
+	-webkit-mask-image: url("#{$wave-shape}");
+	mask-image: url("#{$wave-shape}");
+}
+
+.wave-layer-back {
+	background: var(--wave-color-back);
+	-webkit-mask-size: 480px 120px;
+	mask-size: 480px 120px;
+	animation: wave-move-back 18s linear infinite;
+}
+
+.wave-layer-mid {
+	background: var(--wave-color-mid);
+	-webkit-mask-size: 340px 96px;
+	mask-size: 340px 96px;
+	animation: wave-move-mid 12s linear infinite;
+}
+
+.wave-layer-front {
+	background: var(--wave-color-front);
+	-webkit-mask-size: 220px 78px;
+	mask-size: 220px 78px;
+	animation: wave-move-front 8s linear infinite;
+}
+
+// Each layer combines horizontal drift and a slight vertical bob into one
+// animation on the `mask-position` shorthand, since `mask-position-x/y`
+// longhands aren't reliably supported everywhere. The x-offsets are spaced
+// proportionally to the total drift distance so the horizontal motion stays
+// linear even though the keyframe also wobbles y for an organic swell feel.
+@keyframes wave-move-back {
+	0% { -webkit-mask-position: 0 100%; mask-position: 0 100%; }
+	25% { -webkit-mask-position: -120px calc(100% - 5px); mask-position: -120px calc(100% - 5px); }
+	50% { -webkit-mask-position: -240px 100%; mask-position: -240px 100%; }
+	75% { -webkit-mask-position: -360px calc(100% + 5px); mask-position: -360px calc(100% + 5px); }
+	100% { -webkit-mask-position: -480px 100%; mask-position: -480px 100%; }
+}
+
+@keyframes wave-move-mid {
+	0% { -webkit-mask-position: 0 100%; mask-position: 0 100%; }
+	25% { -webkit-mask-position: 85px calc(100% + 4px); mask-position: 85px calc(100% + 4px); }
+	50% { -webkit-mask-position: 170px 100%; mask-position: 170px 100%; }
+	75% { -webkit-mask-position: 255px calc(100% - 4px); mask-position: 255px calc(100% - 4px); }
+	100% { -webkit-mask-position: 340px 100%; mask-position: 340px 100%; }
+}
+
+@keyframes wave-move-front {
+	0% { -webkit-mask-position: 0 100%; mask-position: 0 100%; }
+	25% { -webkit-mask-position: -55px calc(100% - 4px); mask-position: -55px calc(100% - 4px); }
+	50% { -webkit-mask-position: -110px 100%; mask-position: -110px 100%; }
+	75% { -webkit-mask-position: -165px calc(100% + 4px); mask-position: -165px calc(100% + 4px); }
+	100% { -webkit-mask-position: -220px 100%; mask-position: -220px 100%; }
+}
