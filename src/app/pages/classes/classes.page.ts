@@ -34,7 +34,7 @@ export class ClassesPage {
       outcomes: ['Comfort in the water', 'Parent-supported routines', 'Early body awareness'],
       confidenceLabel: 'Soft entry, low-pressure rhythm',
       coachCue: 'We keep transitions slow and predictable so the water feels safe from the first minute.',
-      image: '/images/toddler-parent-swim-lesson.jpg',
+      image: 'images/toddler-parent-swim-lesson.jpg',
       imageAlt: 'Toddler and parent bonding during a swim lesson',
     },
     {
@@ -44,7 +44,7 @@ export class ClassesPage {
       outcomes: ['Float and kick basics', 'Breath control', 'Safe wall returns'],
       confidenceLabel: 'Gentle skill-building with visible wins',
       coachCue: 'Expect lots of repetition, simple cues, and quick encouragement after every success.',
-      image: '/images/instructor-teaching-child.jpg',
+      image: 'images/instructor-teaching-child.jpg',
       imageAlt: 'Instructor teaching a child to swim',
     },
     {
@@ -54,7 +54,7 @@ export class ClassesPage {
       outcomes: ['Freestyle foundation', 'Backstroke rhythm', 'Deep-water confidence'],
       confidenceLabel: 'Steady movement with more challenge',
       coachCue: 'Lessons add sequencing and endurance while keeping corrections clear and manageable.',
-      image: '/images/girl-backstroke-swim.jpg',
+      image: 'images/girl-backstroke-swim.jpg',
       imageAlt: 'Young swimmer practicing backstroke technique',
     },
     {
@@ -64,7 +64,7 @@ export class ClassesPage {
       outcomes: ['Technique refinement', 'Endurance building', 'Starts and turns basics'],
       confidenceLabel: 'Sharper pace with precision cues',
       coachCue: 'Instruction becomes more specific here, with technique notes layered into longer swim sets.',
-      image: '/images/teen-swimmer-competition-ready.jpg',
+      image: 'images/teen-swimmer-competition-ready.jpg',
       imageAlt: 'Teen swimmer focused and ready to compete',
     },
     {
@@ -74,7 +74,7 @@ export class ClassesPage {
       outcomes: ['Beginner-friendly coaching', 'Confidence rebuilding', 'Lap swim technique'],
       confidenceLabel: 'Personal pacing with private support',
       coachCue: 'Adult lessons adapt around comfort, goals, and how quickly the swimmer wants to progress.',
-      image: '/images/adults-swim-training-pair.jpg',
+      image: 'images/adults-swim-training-pair.jpg',
       imageAlt: 'Two adult swimmers training together in the pool',
       accent: true,
     },

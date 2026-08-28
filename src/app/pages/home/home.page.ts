@@ -43,7 +43,7 @@ export class HomePage {
       title: 'Water Babies',
       meta: '6 months-3 years | Parent + child | 30 minutes',
       description: 'Gentle water play, body position basics, and trust-building for the earliest swimmers.',
-      image: '/images/toddler-parent-swim-lesson.jpg',
+      image: 'images/toddler-parent-swim-lesson.jpg',
       imageAlt: 'Toddler and parent bonding during a swim lesson',
     },
     {
@@ -51,7 +51,7 @@ export class HomePage {
       title: 'Beginners',
       meta: '4-6 years | Small group | 35 minutes',
       description: 'Floating, kicking, breath control, and confidence around the wall and shallow water.',
-      image: '/images/instructor-teaching-child.jpg',
+      image: 'images/instructor-teaching-child.jpg',
       imageAlt: 'Instructor teaching a child to swim',
     },
     {
@@ -59,7 +59,7 @@ export class HomePage {
       title: 'Intermediate',
       meta: '7-12 years | Small group | 45 minutes',
       description: 'Stroke foundations, safe deep-water skills, and smoother movement across the pool.',
-      image: '/images/girl-backstroke-swim.jpg',
+      image: 'images/girl-backstroke-swim.jpg',
       imageAlt: 'Young swimmer practicing backstroke technique',
     },
     {
@@ -67,7 +67,7 @@ export class HomePage {
       title: 'Adult Lessons',
       meta: '18+ | Private or paired | 45 minutes',
       description: 'Supportive coaching for beginners, returning swimmers, and adults refining technique.',
-      image: '/images/adults-swim-training-pair.jpg',
+      image: 'images/adults-swim-training-pair.jpg',
       imageAlt: 'Two adult swimmers training together in the pool',
     },
   ];
